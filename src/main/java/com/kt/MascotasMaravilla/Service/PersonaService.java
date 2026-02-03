@@ -20,5 +20,7 @@ public class PersonaService {
     persona.setEmail(personaDTO.getEmail());
     persona.setApellido(personaDTO.getApellido());
     }
+     personaRepository.save(persona);
     }
+
 
