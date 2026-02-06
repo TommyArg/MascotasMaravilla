@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.Instant;
 import java.time.LocalDate;
 
 @Getter
@@ -32,10 +33,10 @@ public class Persona {
     private String email;
 
     @Column(name = "creado")
-    private LocalDate creado;
+    private Instant creado;
 
     @Column(name = "editado")
-    private LocalDate editado;
+    private Instant editado;
 
 
 }

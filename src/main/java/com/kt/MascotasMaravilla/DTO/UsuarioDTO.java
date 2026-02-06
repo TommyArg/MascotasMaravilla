@@ -16,6 +16,6 @@ import java.time.Instant;
         private Integer id;
         private Integer idPersona;
         private String usuario;
-        private String contrasena;
+      //  private String contrasena;
         private Boolean activo;
     }
