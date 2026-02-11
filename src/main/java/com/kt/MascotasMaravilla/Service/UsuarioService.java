@@ -13,25 +13,9 @@ import java.util.List;
 import java.util.Optional;
 
 // NOTA: Recuerda importar tu Modelo y tu Repositorio con Alt+Enter al terminar
-@Autowired;
 @Service
-@RequiredArgsConstructor
 public class UsuarioService {
     @Autowired
     private UsuarioRepository UsuarioRepository;
-    @Autowired
-    private PersonaRepository personaRepository;
 
-    public void crear)(UsuarioDTO usuarioDTO) {
-    Usuario usuario = new Usuario();
-    Persona persona = personaRepository.findById(UsuarioDTO.getIdPersona())
-            .orElseThrow() -> new RuntimeException("Persona no encontrada"));
-    }
-
-    usuario.setIdPersona(persona);
-    usuario.setUsuario(usuarioDTO.getUsuario());
-    usuario.setContrasena(UsuarioDTO.getContrasena());
-    usuario.setActivo(usuarioDTO.getActivo());
-
-    usuarioRepository.save(usuario);
 }

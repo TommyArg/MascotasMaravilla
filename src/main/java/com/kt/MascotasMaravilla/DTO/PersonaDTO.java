@@ -10,7 +10,7 @@ import java.time.Instant;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PersonaDTO {
-    private Integer id_persona;
+    private Integer idPersona;
     private String dni;
     private String nombre;
     private String apellido;

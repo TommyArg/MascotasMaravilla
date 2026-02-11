@@ -40,8 +40,9 @@ public class PersonaService {
     }
     public void borrar(Integer ID){
         if (!personaRepository.existsById(ID)) {
-            throw new RuntimeException("Nu.") ;
-            personaRepository.deleteById(ID) };
+            throw new RuntimeException("Nu.");
+
+        }  personaRepository.deleteById(ID);
         }
     }
 

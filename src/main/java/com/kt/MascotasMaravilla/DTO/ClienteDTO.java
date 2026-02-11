@@ -15,7 +15,7 @@ import java.time.Instant;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ClienteDTO{
-    private Integer id;
+    private Integer idCliente;
     private Persona idPersona;
     private Instant fechaRegistro;
 }
