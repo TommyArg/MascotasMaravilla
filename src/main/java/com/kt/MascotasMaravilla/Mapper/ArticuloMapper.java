@@ -21,7 +21,7 @@ public abstract class ArticuloMapper {
     public abstract Articulo toEntity (ArticuloDTO articuloDTO) ;
 
 
-    @Mapping(target = "idCategoria", source = "idCategoria")
+    @Mapping(target = "idCategoria", source = "idCategoria.id")
     public abstract ArticuloDTO toDTO (Articulo articulo);
     public abstract List<ArticuloDTO> toList (List<Articulo> articuloList);
 

@@ -19,7 +19,7 @@ public abstract class StaffMapper {
     @Mapping(target = "idPersona", source ="idPersona", qualifiedByName = "idPersona")
     public abstract Staff toEntity(StaffDTO staffDTO);
 
-    @Mapping(target = "idPersona", source = "idPersona")
+    @Mapping(target = "idPersona", source = "idPersona.id")
     public abstract Staff toDTO(Staff staff);
 
     public abstract List<StaffDTO> toList(List<Staff> staffList);

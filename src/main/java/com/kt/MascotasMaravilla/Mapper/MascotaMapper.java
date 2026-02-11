@@ -19,7 +19,7 @@ public abstract class MascotaMapper {
     @Mapping(target = "idCliente" , source = "idCliente", qualifiedByName ="idCliente")
     public abstract Mascota toEntity (MascotaDTO mascotaDTO);
 
-    @Mapping(target = "idCliente", source = "idCliente")
+    @Mapping(target = "idCliente", source = "idCliente.id")
     public abstract MascotaDTO toDTO (MascotaDTO mascotaDTO);
     public abstract List<Mascota> toList(List<Mascota> mascotaList);
 

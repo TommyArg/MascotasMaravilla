@@ -1,16 +1,10 @@
 package com.kt.MascotasMaravilla.Service;
-
 import com.kt.MascotasMaravilla.DTO.CategoriaDTO;
-import com.kt.MascotasMaravilla.DTO.PersonaDTO;
 import com.kt.MascotasMaravilla.Mapper.CategoriaMapper;
-import com.kt.MascotasMaravilla.Mapper.PersonaMapper;
 import com.kt.MascotasMaravilla.Models.Categoria;
-import com.kt.MascotasMaravilla.Models.Persona;
 import com.kt.MascotasMaravilla.Repository.CategoriaRepository;
-import com.kt.MascotasMaravilla.Repository.PersonaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service

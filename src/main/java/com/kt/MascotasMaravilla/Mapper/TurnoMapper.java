@@ -25,7 +25,7 @@ public abstract class TurnoMapper {
     @Mapping(target ="idMascota", source = "idMascota", qualifiedByName = "idMascota")
     public abstract Turno toEntity(TurnoDTO turnoDTO);
 
-    @Mapping(target = "idStaff", source = "idStaff")
+    @Mapping(target = "idStaff", source = "idStaff.id")
     public abstract TurnoDTO toDTO (Turno turno);
 
     public abstract List<TurnoDTO> toList (List<Turno> turnoList);

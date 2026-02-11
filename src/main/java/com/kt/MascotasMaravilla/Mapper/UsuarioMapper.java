@@ -17,7 +17,7 @@ public abstract class UsuarioMapper {
     @Mapping(target = "idPersona", source = "idPersona", qualifiedByName = "idToPersona")
     public abstract Usuario toEntity(UsuarioDTO usuarioDTO);
 
-    @Mapping(target = "idPersona", source = "idPersona")
+    @Mapping(target = "idPersona", source = "idPersona.id")
     public abstract UsuarioDTO toDTO (Usuario usuario);
 
     public abstract List<UsuarioDTO> toList(List<Usuario> usuarioList);

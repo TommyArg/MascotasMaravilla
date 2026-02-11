@@ -20,7 +20,7 @@ public abstract class VentaMapper {
     @Mapping(target = "idCliente", source = "idCliente", qualifiedByName = "idToCliente")
     public abstract Venta toEntity(VentaDTO ventaDTO);
 
-    @Mapping(target ="idCliente", source = "idCliente")
+    @Mapping(target ="idCliente", source = "idCliente.id")
     public abstract VentaDTO toDTO (Venta venta);
 
     @Mapping(target = "idCliente", source = "idCliente", qualifiedByName = "idToCliente")
