@@ -11,25 +11,26 @@ import org.mapstruct.Named;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
-@Mapper(componentModel ="spring")
+
+@Mapper(componentModel = "spring")
 public abstract class ClienteMapper {
     @Autowired
     private PersonaRepository personaRepository;
 
-    @Mapping(target = "idPersona", source = "idPersona", qualifiedByName ="idPersona")
-    public abstract Cliente toEntity (ClienteDTO clienteDTO);
+    @Mapping(target = "idPersona", source = "idPersona", qualifiedByName = "idPersona")
+    public abstract Cliente toEntity(ClienteDTO clienteDTO);
 
-    @Mapping(target ="idPersona", source = "idPersona.id")
-    public abstract ClienteDTO toDTO (Cliente cliente);
+    @Mapping(target = "idPersona", source = "idPersona.id")
+    public abstract ClienteDTO toDTO(Cliente cliente);
 
-    public abstract List<ClienteDTO> toList (List<Cliente> clienteList);
+    public abstract List<ClienteDTO> toList(List<Cliente> clienteList);
 
-    @Mapping(target ="idPersona", source= "idPersona", qualifiedByName ="idToPersona")
+    @Mapping(target = "idPersona", source = "idPersona", qualifiedByName = "idToPersona")
     public abstract void updateCliente(ClienteDTO clienteDTO, @MappingTarget Cliente entity);
 
     @Named("idToPersona")
-    protected Persona idToPersona (Integer idPersona){
-        if(idPersona ==null) return null;
+    protected Persona idToPersona(Integer idPersona) {
+        if (idPersona == null) return null;
         return personaRepository.findById(idPersona)
                 .orElseThrow(() -> new RuntimeException("Erruuur no encontré ese ID de pershona unu"));
 

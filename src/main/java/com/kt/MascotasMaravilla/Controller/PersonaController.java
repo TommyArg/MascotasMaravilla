@@ -11,9 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api")
 public class PersonaController {
-@Autowired
-    private PersonaService personaService ;
-@PostMapping("/crear")
-    public String crear(@RequestBody PersonaDTO personaDTO) {personaService.crear(personaDTO);
-    return "personaCreada";
-}}
+    @Autowired
+    private PersonaService personaService;
+
+    @PostMapping("/crear")
+    public String crear(@RequestBody PersonaDTO personaDTO) {
+        personaService.crear(personaDTO);
+        return "personaCreada";
+    }
+}

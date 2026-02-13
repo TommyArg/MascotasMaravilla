@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 public class UsuarioService {
     @Autowired
-    private UsuarioRepository UsuarioRepository;
+    private UsuarioRepository usuarioRepository;
     @Autowired
     private UsuarioMapper usuarioMapper;
 
@@ -21,22 +21,28 @@ public class UsuarioService {
         usuarioRepository.save(usuario);
     }
 
-    public List<usuarioDTO> lista(){
+    public List<UsuarioDTO> lista() {
         List<Usuario> usuariolist = usuarioRepository.findAll();
         return usuarioMapper.toList(usuariolist);
     }
 
-    public UsuarioDTO listaId (Integer id) {
+    public UsuarioDTO listaId(Integer id) {
         Usuario usuario = usuarioRepository.findById(id).orElseThrow(() -> new RuntimeException("Errooor usuario no encontrado guau guau"));
         return usuarioMapper.toDTO(usuario);
     }
 
 
-    public UsuarioDTO editar(Integer id, UsuarioDTO usuarioDTO){
+    public UsuarioDTO editar(Integer id, UsuarioDTO usuarioDTO) {
         Usuario usuario = usuarioRepository.findById(id).orElseThrow(() -> new RuntimeException("User no encontrado grrr"));
-        usuarioMapper.updateUsuario(UsuarioDTO, usuario);
+        usuarioMapper.updateUsuario(usuarioDTO, usuario);
         Usuario actualizado = usuarioRepository.save(usuario);
         return usuarioMapper.toDTO(actualizado);
     }
-    public
+
+    public void borrar(Integer id) {
+        if (!usuarioRepository.existsById(id)) {
+            throw new RuntimeException("No quise borrar");
+        }
+        usuarioRepository.deleteById(id);
+    }
 }

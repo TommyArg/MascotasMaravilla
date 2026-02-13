@@ -12,7 +12,8 @@ import org.mapstruct.Named;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
-@Mapper(componentModel ="spring")
+
+@Mapper(componentModel = "spring")
 public abstract class VentaMapper {
     @Autowired
     private ClienteRepository clienteRepository;
@@ -20,18 +21,18 @@ public abstract class VentaMapper {
     @Mapping(target = "idCliente", source = "idCliente", qualifiedByName = "idToCliente")
     public abstract Venta toEntity(VentaDTO ventaDTO);
 
-    @Mapping(target ="idCliente", source = "idCliente.id")
-    public abstract VentaDTO toDTO (Venta venta);
+    @Mapping(target = "idCliente", source = "idCliente.id")
+    public abstract VentaDTO toDTO(Venta venta);
 
     @Mapping(target = "idCliente", source = "idCliente", qualifiedByName = "idToCliente")
-    public abstract void updateVenta (VentaDTO ventaDTO, @MappingTarget Venta entity);
+    public abstract void updateVenta(VentaDTO ventaDTO, @MappingTarget Venta entity);
 
-    public abstract List<VentaDTO> toList (List<Venta> ventaList);
+    public abstract List<VentaDTO> toList(List<Venta> ventaList);
 
     @Named("idToCliente")
-    protected Cliente idToCliente(Integer idCliente){
-    if(idCliente == null) return null;
-    return clienteRepository.findById(idCliente)
-            .orElseThrow(() -> new RuntimeException("Otro error igual :b bueno cliente no encontrado para la venta"));
+    protected Cliente idToCliente(Integer idCliente) {
+        if (idCliente == null) return null;
+        return clienteRepository.findById(idCliente)
+                .orElseThrow(() -> new RuntimeException("Otro error igual :b bueno cliente no encontrado para la venta"));
     }
 }

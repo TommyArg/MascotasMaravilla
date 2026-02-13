@@ -11,24 +11,26 @@ import org.mapstruct.Named;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
-@Mapper(componentModel ="spring")
+
+@Mapper(componentModel = "spring")
 public abstract class MascotaMapper {
     @Autowired
     private ClienteRepository clienteRepository;
 
-    @Mapping(target = "idCliente" , source = "idCliente", qualifiedByName ="idCliente")
-    public abstract Mascota toEntity (MascotaDTO mascotaDTO);
+    @Mapping(target = "idCliente", source = "idCliente", qualifiedByName = "idCliente")
+    public abstract Mascota toEntity(MascotaDTO mascotaDTO);
 
     @Mapping(target = "idCliente", source = "idCliente.id")
-    public abstract MascotaDTO toDTO (MascotaDTO mascotaDTO);
-    public abstract List<Mascota> toList(List<Mascota> mascotaList);
+    public abstract MascotaDTO toDTO(Mascota mascota);
 
-    @Mapping(target ="idCliente", source = "idCliente", qualifiedByName = "idCliente")
-    public abstract void updateMascota(MascotaDTO mascotaDTO , @MappingTarget Mascota entity);
+    public abstract List<MascotaDTO> toList(List<Mascota> mascotaList);
+
+    @Mapping(target = "idCliente", source = "idCliente", qualifiedByName = "idToCliente")
+    public abstract void updateMascota(MascotaDTO mascotaDTO, @MappingTarget Mascota entity);
 
     @Named("idToCliente")
-    protected Cliente idToCliente (Integer idCliente){
-        if(idCliente == null) return null;
+    protected Cliente idToCliente(Integer idCliente) {
+        if (idCliente == null) return null;
         return clienteRepository.findById(idCliente)
                 .orElseThrow(() -> new RuntimeException("Error, no se encontró al dueño de esta mascotita :c"));
     }

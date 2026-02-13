@@ -6,13 +6,15 @@ import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 
 import java.util.List;
+
 @Mapper(componentModel = "spring")
 public interface PersonaMapper {
     Persona toEntity(PersonaDTO personaDTO);
-    PersonaDTO toDTO (Persona persona);
+
+    PersonaDTO toDTO(Persona persona);
 
     List<PersonaDTO> toList(List<Persona> personaList);
 
-    void updatePersona(PersonaDTO personaDTO,@MappingTarget Persona persona);
+    void updatePersona(PersonaDTO personaDTO, @MappingTarget Persona persona);
 
 }

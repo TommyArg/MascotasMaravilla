@@ -4,10 +4,11 @@ import com.kt.MascotasMaravilla.Models.Turno;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-// Nota: Tendrás que importar tu Modelo manualmente con Alt+Enter
-// porque IntelliJ no sabe en qué carpeta exacta están tus Entities.
+import java.util.List;
+
 
 @Repository
 public interface TurnoRepository extends JpaRepository<Turno, Integer> {
-    // Aquí puedes añadir métodos personalizados más tarde
+    List<Turno> id(Integer id);
+
 }

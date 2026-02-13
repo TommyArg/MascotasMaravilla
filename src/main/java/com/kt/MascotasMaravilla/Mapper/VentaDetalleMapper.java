@@ -14,6 +14,7 @@ import org.mapstruct.Named;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+
 @Mapper(componentModel = "spring")
 public abstract class VentaDetalleMapper {
     @Autowired
@@ -24,28 +25,28 @@ public abstract class VentaDetalleMapper {
 
     @Mapping(target = "idVenta", source = "idVenta", qualifiedByName = "idVenta")
     @Mapping(target = "idArticulo", source = "idArticulo", qualifiedByName = "idarticulo")
-    public abstract Ventadetalle toEntity (VentadetalleDTO ventadetalleDTO);
+    public abstract Ventadetalle toEntity(VentadetalleDTO ventadetalleDTO);
 
     @Mapping(target = "idVenta", source = "idVenta.id", qualifiedByName = "idToVenta")
-    public abstract VentadetalleDTO toDTO (Ventadetalle ventadetalle);
+    public abstract VentadetalleDTO toDTO(Ventadetalle ventadetalle);
 
-    public abstract List<VentadetalleDTO> toList (List<Ventadetalle> ventadetalleList);
+    public abstract List<VentadetalleDTO> toList(List<Ventadetalle> ventadetalleList);
 
     @Mapping(target = "idVenta", source = "idVenta", qualifiedByName = "idVenta")
     public abstract void updateVentadetalle(VentadetalleDTO ventadetalleDTO, @MappingTarget Ventadetalle entity);
 
     @Named("idToVenta")
-    protected Venta idToVenta (Integer idVenta){
-        if(idVenta == null) return null;
+    protected Venta idToVenta(Integer idVenta) {
+        if (idVenta == null) return null;
         return ventaRepository.findById(idVenta)
                 .orElseThrow(() -> new RuntimeException("Errooorrr"));
     }
 
     @Named("idToArticulo")
-    protected Articulo idToArticulo(Integer idArticulo){
-        if(idArticulo == null) return null;
+    protected Articulo idToArticulo(Integer idArticulo) {
+        if (idArticulo == null) return null;
         return articuloRepository.findById(idArticulo)
-        .orElseThrow(() -> new RuntimeException("Eeeeeerror"));
+                .orElseThrow(() -> new RuntimeException("Eeeeeerror"));
 
     }
 }
