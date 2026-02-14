@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-
 public class PersonaService {
     @Autowired
     private PersonaRepository personaRepository;
@@ -27,7 +26,7 @@ public class PersonaService {
         return personaMapper.toList(personaList);
     }
 
-    public PersonaDTO listaID(Integer ID) {
+    public PersonaDTO listaId(Integer ID) {
         Persona persona = personaRepository.findById(ID).orElseThrow(() -> new RuntimeException("Persona no encontrada"));
         return personaMapper.toDTO(persona);
     }

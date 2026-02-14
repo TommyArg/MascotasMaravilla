@@ -5,10 +5,11 @@ import com.kt.MascotasMaravilla.Mapper.ArticuloMapper;
 import com.kt.MascotasMaravilla.Models.Articulo;
 import com.kt.MascotasMaravilla.Repository.ArticuloRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.management.RuntimeErrorException;
 import java.util.List;
-
+@Service
 public class ArticuloService {
     @Autowired
     private ArticuloRepository articuloRepository;
@@ -20,12 +21,12 @@ public class ArticuloService {
         articuloRepository.save(articulo);
     }
 
-    public List<ArticuloDTO> lista(Integer ID) {
+    public List<ArticuloDTO> lista() {
         List<Articulo> articuloList = articuloRepository.findAll();
         return articuloMapper.toList(articuloList);
     }
 
-    public ArticuloDTO listaID(Integer ID) {
+    public ArticuloDTO listaId(Integer ID) {
         Articulo articulo = articuloRepository.findById(ID).orElseThrow(() -> new RuntimeException("No encontrée articuloss"));
         return articuloMapper.toDTO(articulo);
     }
