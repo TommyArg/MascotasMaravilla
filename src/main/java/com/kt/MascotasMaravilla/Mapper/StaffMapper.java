@@ -21,14 +21,14 @@ public abstract class StaffMapper {
     public abstract Staff toEntity(StaffDTO staffDTO);
 
     @Mapping(target = "idPersona", source = "idPersona.id")
-    public abstract Staff toDTO(Staff staff);
+    public abstract StaffDTO toDTO(Staff staff);
 
     public abstract List<StaffDTO> toList(List<Staff> staffList);
 
     @Mapping(target = "idPersona", source = "idPersona", qualifiedByName = "idToPersona")
     public abstract void updateStaff(StaffDTO staffDTO, @MappingTarget Staff entity);
 
-    @Named("IdToPersona")
+    @Named("idToPersona")
     protected Persona idToPersona(Integer idPersona) {
         if (idPersona == null) return null;
         return personaRepository.findById(idPersona)

@@ -5,9 +5,10 @@ import com.kt.MascotasMaravilla.Mapper.ClienteMapper;
 import com.kt.MascotasMaravilla.Models.Cliente;
 import com.kt.MascotasMaravilla.Repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class ClienteService {
     @Autowired
     private ClienteRepository clienteRepository;
@@ -24,8 +25,8 @@ public class ClienteService {
         return clienteMapper.toList(clienteList);
     }
 
-    public ClienteDTO listaID(Integer ID) {
-        Cliente cliente = clienteRepository.findById(ID).orElseThrow(() -> new RuntimeException("No encontrada lista de clientess"));
+    public ClienteDTO listaId(Integer Id) {
+        Cliente cliente = clienteRepository.findById(Id).orElseThrow(() -> new RuntimeException("No encontrada lista de clientess"));
         return clienteMapper.toDTO(cliente);
     }
 

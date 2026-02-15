@@ -5,9 +5,10 @@ import com.kt.MascotasMaravilla.Mapper.VentaDetalleMapper;
 import com.kt.MascotasMaravilla.Models.Ventadetalle;
 import com.kt.MascotasMaravilla.Repository.VentadetalleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class VentadetalleService {
     @Autowired
     private VentadetalleRepository ventadetalleRepository;

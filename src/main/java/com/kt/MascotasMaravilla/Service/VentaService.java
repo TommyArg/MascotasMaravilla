@@ -5,9 +5,11 @@ import com.kt.MascotasMaravilla.Mapper.VentaMapper;
 import com.kt.MascotasMaravilla.Models.Venta;
 import com.kt.MascotasMaravilla.Repository.VentaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class VentaService {
     @Autowired
     private VentaRepository ventaRepository;
@@ -24,7 +26,7 @@ public class VentaService {
         return ventaMapper.toList(ventaList);
     }
 
-    public VentaDTO listaID(Integer ID) {
+    public VentaDTO listaId(Integer ID) {
         Venta venta = ventaRepository.findById(ID).orElseThrow(() -> new RuntimeException("ErroOoor no encontré ventass"));
         return ventaMapper.toDTO(venta);
     }

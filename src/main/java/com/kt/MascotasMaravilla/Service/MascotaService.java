@@ -5,9 +5,10 @@ import com.kt.MascotasMaravilla.Mapper.MascotaMapper;
 import com.kt.MascotasMaravilla.Models.Mascota;
 import com.kt.MascotasMaravilla.Repository.MascotaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class MascotaService {
     @Autowired
     private MascotaRepository mascotaRepository;
